@@ -4,7 +4,7 @@
   "description": "My first Solidity project. It's a dapp that aims to store notes in a decentralized way",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/WrongJuice/bloknote.git"
+    "url": "git+ssh://git@github.com/WrongJuice/blocknote.git"
   },
   "keywords": [
     "solidity",
@@ -13,10 +13,6 @@
   ],
   "author": "wrongjuice",
   "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/WrongJuice/bloknote/issues"
-  },
-  "homepage": "https://github.com/WrongJuice/bloknote#readme",
   "private": true,
   "dependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
