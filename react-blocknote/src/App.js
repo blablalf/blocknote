@@ -4,7 +4,7 @@ import { ethers } from 'ethers'
 import Notebook from './artifacts/contracts/Notebook.sol/Notebook.json'
 import Header from './Header';
 
-const notebookAddress = "0x9a676e781a523b5d0c0e43731313a708cb607508"
+const notebookAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
 
 function App() {
   // store noteInputValue in local state
@@ -19,8 +19,10 @@ function App() {
   // call the smart contract, read the current noteInputValue value
   async function fetchNote() {
     if (typeof window.ethereum !== 'undefined') {
+      await requestAccount()
       const provider = new ethers.providers.Web3Provider(window.ethereum)
-      const contract = new ethers.Contract(notebookAddress, Notebook.abi, provider)
+      const signer = provider.getSigner()
+      const contract = new ethers.Contract(notebookAddress, Notebook.abi, signer)
       try {
         const noteText = await contract.displayNote()
 
@@ -37,7 +39,6 @@ function App() {
   async function setNoteText() {
     if (!noteInputValue) return
     if (typeof window.ethereum !== 'undefined') {
-      await requestAccount()
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner()
       const contract = new ethers.Contract(notebookAddress, Notebook.abi, signer)
