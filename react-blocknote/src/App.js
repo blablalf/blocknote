@@ -4,7 +4,7 @@ import { ethers } from 'ethers'
 import Notebook from './artifacts/contracts/Notebook.sol/Notebook.json'
 import Header from './Header';
 
-const notebookAddress = "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853"
+const notebookAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
 
 function App() {
   // store noteInputValue in local state

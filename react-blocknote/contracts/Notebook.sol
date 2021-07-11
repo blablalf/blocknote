@@ -6,13 +6,13 @@ import "hardhat/console.sol";
 
 contract Notebook {
   //mapping (address => string) noteText;
-  string defaultValue;
+  //string defaultValue;
   string sharedNote;
 
   constructor(string memory _noteText) {
     //console.log("Deploying a Notebook with the following text:", _noteText);
-    defaultValue = _noteText;
-    sharedNote = defaultValue;
+    //defaultValue = _noteText;
+    sharedNote = _noteText;
   }
 
   function displayNote() public view returns (string memory) {
