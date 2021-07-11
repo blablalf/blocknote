@@ -19,3 +19,6 @@ Personnal reminder :
 4. Compile the smart contracts -> `npx hardhat compile`  
 5. Start a local testnet node -> `npx hardhat node`  
 6. Deploy the smart contract by launching the appropriate script -> `npx hardhat run scripts/deploy.js --network localhost`  
+
+Demonstration : https://github.com/WrongJuice/blocknote
+
