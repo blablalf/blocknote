@@ -19,10 +19,10 @@ function App() {
   // call the smart contract, read the current noteInputValue value
   async function fetchNote() {
     if (typeof window.ethereum !== 'undefined') {
-      await requestAccount()
+      //await requestAccount()
       const provider = new ethers.providers.Web3Provider(window.ethereum)
-      const signer = provider.getSigner()
-      const contract = new ethers.Contract(notebookAddress, Notebook.abi, signer)
+      //const signer = provider.getSigner()
+      const contract = new ethers.Contract(notebookAddress, Notebook.abi, provider) // need to be replace provider by signer
       try {
         const noteText = await contract.displayNote()
 
