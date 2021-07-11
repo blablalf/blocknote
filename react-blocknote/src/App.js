@@ -4,7 +4,7 @@ import { ethers } from 'ethers'
 import Notebook from './artifacts/contracts/Notebook.sol/Notebook.json'
 import Header from './Header';
 
-const notebookAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+const notebookAddress = "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853"
 
 function App() {
   // store noteInputValue in local state
@@ -39,6 +39,7 @@ function App() {
   async function setNoteText() {
     if (!noteInputValue) return
     if (typeof window.ethereum !== 'undefined') {
+      await requestAccount()
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner()
       const contract = new ethers.Contract(notebookAddress, Notebook.abi, signer)
