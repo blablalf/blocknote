@@ -5,21 +5,16 @@ import "hardhat/console.sol";
 
 
 contract Notebook {
-  //mapping (address => string) noteText;
-  //string defaultValue;
-  string sharedNote;
 
-  constructor(string memory _noteText) {
-    //console.log("Deploying a Notebook with the following text:", _noteText);
-    //defaultValue = _noteText;
-    sharedNote = _noteText;
-  }
+  mapping (address => string) notes;
+  string emptyStr;
 
   function displayNote() public view returns (string memory) {
-    //bytes memory tempEmptyStringTest = bytes(noteText[msg.sender]);
-    //if (tempEmptyStringTest.length == 0) noteText[msg.sender] = defaultValue;
-    //return noteText[msg.sender];
-    return sharedNote;
+    console.log("address_", msg.sender, "|value_", notes[msg.sender]);
+    if (bytes(notes[msg.sender]).length == 0){
+      console.log("EMPTY_length=", bytes(notes[msg.sender]).length, "note=", notes[msg.sender]);
+      return "Empty note";
+    } else return notes[msg.sender];
   }
 
   function setNoteText(string memory _noteText) public {
@@ -29,7 +24,11 @@ contract Notebook {
     //console.log("Editing note from '%s' to '%s'", noteText[msg.sender], _noteText);
     //noteText[msg.sender] = _noteText;
 
-    console.log("Editing note from '%s' to '%s'", sharedNote, _noteText);
-    sharedNote = _noteText;
+    //require(msg.sender == minter);
+
+    console.log("Editing note from '%s' to '%s'", notes[msg.sender], _noteText);
+    notes[msg.sender] = _noteText;
+    console.log("Note edited '%s'", notes[msg.sender]);
   }
+
 }

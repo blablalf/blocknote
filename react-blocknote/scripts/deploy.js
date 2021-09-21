@@ -15,7 +15,7 @@ async function main() {
 
   // We get the contract to deploy
   const Notebook = await hre.ethers.getContractFactory("Notebook");
-  const notebook = await Notebook.deploy("I hope I will get this contract");
+  const notebook = await Notebook.deploy();
 
   await notebook.deployed();
 
